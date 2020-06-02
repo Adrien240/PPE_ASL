@@ -57,6 +57,17 @@ namespace AssisesSportLorrain
                     txbCapaciteAt1.Clear();
 
                     lblCreated1.Text = "Atelier créé !";
+
+                    //On réactualise la combobox pour ajouter l'élément créé
+                    cbxSelectAt1.Items.Clear();
+                    cbxSelectAt1.ResetText();
+                    foreach (Atelier unAtelier in Atelier.listeAteliers())
+                    {
+                        cbxSelectAt1.Items.Add(unAtelier.IdAtelier + " (" + unAtelier.NomAtelier + ")");
+                    }
+
+                    //On réactualise le DataGridView pour le remplir automatiquement
+                    remplirListeAteliers();
                 }
             }
             catch (Exception ex)
@@ -87,6 +98,9 @@ namespace AssisesSportLorrain
                 txbCapaciteAt2.Clear();
 
                 lblModified1.Text = "Atelier modifié !";
+
+                //On réactualise le DataGridView pour le remplir automatiquement
+                remplirListeAteliers();
             }
             catch (Exception ex){
                 MessageBox.Show("ERREUR! Plus d'informations ci-dessous :");
@@ -106,6 +120,17 @@ namespace AssisesSportLorrain
                 txbCapaciteAt2.Clear();
 
                 lblDeleted1.Text = "Atelier supprimé !";
+
+                //On réactualise la combobox pour enlever l'élément supprimé de la liste
+                cbxSelectAt1.Items.Clear();
+                cbxSelectAt1.ResetText();
+                foreach (Atelier unAtelier in Atelier.listeAteliers())
+                {
+                    cbxSelectAt1.Items.Add(unAtelier.IdAtelier + " (" + unAtelier.NomAtelier + ")");
+                }
+
+                //On réactualise le DataGridView pour le remplir automatiquement
+                remplirListeAteliers();
             }
             catch (Exception ex){
                 MessageBox.Show("ERREUR! Plus d'informations ci-dessous :");
@@ -159,6 +184,18 @@ namespace AssisesSportLorrain
                     cbxSelectAt2.ResetText();
 
                     lblCreated2.Text = "Thème créé !";
+
+                    //On réactualise la combobox pour ajouter l'élément créé
+                    cbxSelectTh.Items.Clear();
+                    cbxSelectTh.ResetText();
+
+                    foreach (Theme unTheme in Theme.listeThemes())
+                    {
+                        cbxSelectTh.Items.Add(unTheme.IdTheme + " (" + unTheme.NomTheme + ")");
+                    }
+
+                    //On réactualise le DataGridView pour le remplir automatiquement
+                    remplirListeThemes();
                 }
             }
             catch (Exception ex){
@@ -188,6 +225,9 @@ namespace AssisesSportLorrain
                 cbxSelectAt3.ResetText();
 
                 lblModified2.Text = "Thème modifié !";
+
+                //On réactualise le DataGridView pour le remplir automatiquement
+                remplirListeThemes();
             }
             catch (Exception ex){
                 MessageBox.Show("ERREUR! Plus d'informations ci-dessous :");
@@ -207,6 +247,18 @@ namespace AssisesSportLorrain
                 cbxSelectAt3.ResetText();
 
                 lblDeleted2.Text = "Thème supprimé !";
+
+                //On réactualise la combobox pour enlever l'élément créé à la liste
+                cbxSelectTh.Items.Clear();
+                cbxSelectTh.ResetText();
+
+                foreach (Theme unTheme in Theme.listeThemes())
+                {
+                    cbxSelectTh.Items.Add(unTheme.IdTheme + " (" + unTheme.NomTheme + ")");
+                }
+
+                //On réactualise le DataGridView pour le remplir automatiquement
+                remplirListeThemes();
             }
             catch (Exception ex){
                 MessageBox.Show("ERREUR! Plus d'informations ci-dessous :");
@@ -255,7 +307,7 @@ namespace AssisesSportLorrain
                     txbPass.Hide();
                     btnConnect.Hide();
 
-                    // On affiche les tabPages pour la gestion et consultation des ateliers et des thèmes //
+                    // On affiche les informations utiles pour la gestion et consultation des ateliers et des thèmes //
                     tabControl.TabPages.Add(tabAteliers);
                     tabControl.TabPages.Add(tabThemes);
                     btnDisconnect.Show();
