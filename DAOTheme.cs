@@ -29,6 +29,25 @@ namespace AssisesSportLorrain
 
         }
 
+        public static List<Theme> getAllThemesAteliers()
+        {
+            List<Theme> lesThemes = new List<Theme>();
+            string req = "select idTheme, nomTheme, nomAtelier from THEME inner join ATELIER on THEME.idAtelier = ATELIER.idAtelier";
+            DAOFactory db = new DAOFactory();
+            db.connecter();
+
+            SqlDataReader reader = db.excecSQLRead(req);
+
+            while (reader.Read())
+            {
+                Theme th = new Theme(int.Parse(reader[0].ToString()), reader[1].ToString(), reader[2].ToString());
+                lesThemes.Add(th);
+            }
+
+            return lesThemes;
+
+        }
+
         // Créer dans la BDD l'objet Theme passé en paramètre
         public static void creerTheme(Theme unTheme)
         {

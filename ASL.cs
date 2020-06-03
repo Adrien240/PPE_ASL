@@ -15,6 +15,8 @@ namespace AssisesSportLorrain
         private void ASL_Load(object sender, EventArgs e){
             tabControl.TabPages.Remove(tabAteliers);
             tabControl.TabPages.Remove(tabThemes);
+            tabControl.TabPages.Remove(tabAtVisitor);
+            tabControl.TabPages.Remove(tabThVisitor);
             lblStatus.Hide();
             btnDisconnect.Hide();
         }
@@ -23,8 +25,8 @@ namespace AssisesSportLorrain
             InitializeComponent();
         }
 
-        #region Onglet Atelier
-        // Onglet ATELIER
+        #region Onglet Ateliers
+        // Onglet ATELIERS
         //====================================================================
         private void tabAteliers_Enter(object sender, EventArgs e){
             cbxSelectAt1.Items.Clear();
@@ -140,8 +142,8 @@ namespace AssisesSportLorrain
 
         #endregion
 
-        #region Onglet Thème
-        // Onglet THEME
+        #region Onglet Thèmes
+        // Onglet THEMES
         //====================================================================
         private void tabThemes_Enter(object sender, EventArgs e){
             cbxSelectAt2.Items.Clear();
@@ -268,33 +270,45 @@ namespace AssisesSportLorrain
 
         #endregion
 
-        private void remplirListeAteliers(){
-            dgvAteliers.Rows.Clear();
+        #region Onglets visiteurs
+
+        // Onglets ATELIERS
+        //====================================================================
+        private void tabAtVisitor_Enter(object sender, EventArgs e)
+        {
+            dgvAteliersVisitor.Rows.Clear();
 
             foreach (Atelier unAtelier in Atelier.listeAteliers())
             {
-                dgvAteliers.Rows.Add(unAtelier.IdAtelier, unAtelier.NomAtelier, unAtelier.CapaciteAtelier);
+                dgvAteliersVisitor.Rows.Add(unAtelier.IdAtelier, unAtelier.NomAtelier, unAtelier.CapaciteAtelier);
             }
         }
 
-        private void remplirListeThemes(){
-            dgvThemes.Rows.Clear();
+        // Onglet THEME
+        //====================================================================
+        private void tabThVisitor_Enter(object sender, EventArgs e)
+        {
+            dgvThemesVisitor.Rows.Clear();
 
-            foreach (Theme unTheme in Theme.listeThemes())
+            foreach (Theme unTheme in Theme.listeThemes2())
             {
-                dgvThemes.Rows.Add(unTheme.IdTheme, unTheme.NomTheme);
+                dgvThemesVisitor.Rows.Add(unTheme.IdTheme, unTheme.NomTheme, unTheme.NomAtelier);
             }
         }
+
+        #endregion
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            try{
+            try
+            {
                 Utilisateur U1;
                 U1 = new Utilisateur(txbEmail.Text.ToLower(), txbPass.Text);
                 Utilisateur U2;
                 U2 = U1.checkUser();
 
-                if (U1.EmailUtilisateur == U2.EmailUtilisateur && U1.PassUtilisateur == U2.PassUtilisateur){
+                if (U1.EmailUtilisateur == U2.EmailUtilisateur && U1.PassUtilisateur == U2.PassUtilisateur)
+                {
                     MessageBox.Show("Vous êtes à présent connecté!");
 
                     txbEmail.Clear();
@@ -308,21 +322,32 @@ namespace AssisesSportLorrain
                     btnConnect.Hide();
 
                     // On affiche les informations utiles pour la gestion et consultation des ateliers et des thèmes //
-                    tabControl.TabPages.Add(tabAteliers);
-                    tabControl.TabPages.Add(tabThemes);
                     btnDisconnect.Show();
                     lblStatus.Show();
+
+                    if (U2.LevelUtilisateur == 2)
+                    {
+                        tabControl.TabPages.Add(tabAteliers);
+                        tabControl.TabPages.Add(tabThemes);
+                    }
+                    else
+                    {
+                        tabControl.TabPages.Add(tabAtVisitor);
+                        tabControl.TabPages.Add(tabThVisitor);
+                    }
                 }
             }
             catch
             {
-                if (txbEmail.Text == "" && txbPass.Text == ""){
+                if (txbEmail.Text == "" && txbPass.Text == "")
+                {
                     MessageBox.Show("Veuillez saisir quelque chose avant de cliquer sur ce bouton");
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Erreur! E-mail ou Mot de passe incorrect");
                 }
-                
+
             }
         }
 
@@ -339,8 +364,28 @@ namespace AssisesSportLorrain
 
             tabControl.TabPages.Remove(tabAteliers);
             tabControl.TabPages.Remove(tabThemes);
+            tabControl.TabPages.Remove(tabAtVisitor);
+            tabControl.TabPages.Remove(tabThVisitor);
             btnDisconnect.Hide();
             lblStatus.Hide();
+        }
+
+        private void remplirListeAteliers(){
+            dgvAteliers.Rows.Clear();
+
+            foreach (Atelier unAtelier in Atelier.listeAteliers())
+            {
+                dgvAteliers.Rows.Add(unAtelier.IdAtelier, unAtelier.NomAtelier, unAtelier.CapaciteAtelier);
+            }
+        }
+
+        private void remplirListeThemes(){
+            dgvThemes.Rows.Clear();
+
+            foreach (Theme unTheme in Theme.listeThemes())
+            {
+                dgvThemes.Rows.Add(unTheme.IdTheme, unTheme.NomTheme);
+            }
         }
     }
 }

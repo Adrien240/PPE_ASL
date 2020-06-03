@@ -15,11 +15,18 @@ namespace AssisesSportLorrain
 
         private string emailUtilisateur;
         private string passUtilisateur;
+        private int levelUtilisateur;
 
         public Utilisateur(string emailUtilisateur, string passUtilisateur)
         {
             this.emailUtilisateur = emailUtilisateur;
             this.passUtilisateur = passUtilisateur;
+        }
+        public Utilisateur(string emailUtilisateur, string passUtilisateur, int levelUtilisateur)
+        {
+            this.emailUtilisateur = emailUtilisateur;
+            this.passUtilisateur = passUtilisateur;
+            this.levelUtilisateur = levelUtilisateur;
         }
 
         #region Accesseurs
@@ -47,6 +54,19 @@ namespace AssisesSportLorrain
             set
             {
                 passUtilisateur = value;
+            }
+        }
+
+        public int LevelUtilisateur
+        {
+            get
+            {
+                return levelUtilisateur;
+            }
+
+            set
+            {
+                levelUtilisateur = value;
             }
         }
         #endregion
