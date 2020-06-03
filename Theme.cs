@@ -16,12 +16,20 @@ namespace AssisesSportLorrain
         private int idTheme;
         private string nomTheme;
         private int idAtelier;
+        private string nomAtelier;
 
         public Theme(int idTheme, string nomTheme, int idAtelier)
         {
             this.idTheme = idTheme;
             this.nomTheme = nomTheme;
             this.idAtelier = idAtelier;
+        }
+
+        public Theme(int idTheme, string nomTheme, string nomAtelier)
+        {
+            this.idTheme = idTheme;
+            this.nomTheme = nomTheme;
+            this.nomAtelier = nomAtelier;
         }
 
         #region Accesseurs
@@ -63,6 +71,19 @@ namespace AssisesSportLorrain
                 idAtelier = value;
             }
         }
+
+        public string NomAtelier
+        {
+            get
+            {
+                return nomAtelier;
+            }
+
+            set
+            {
+                nomAtelier = value;
+            }
+        }
         #endregion
 
         #region Méthodes d'appel au DAO métier
@@ -71,6 +92,11 @@ namespace AssisesSportLorrain
         public static List<Theme> listeThemes()
         {
             return DAOTheme.getAllThemes();
+        }
+
+        public static List<Theme> listeThemes2()
+        {
+            return DAOTheme.getAllThemesAteliers();
         }
 
         // Fait créer le Theme (objet courant) dans la BDD

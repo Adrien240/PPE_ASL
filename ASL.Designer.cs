@@ -52,10 +52,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvAteliers = new System.Windows.Forms.DataGridView();
-            this.idAtelier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomAtelier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capaciteAtelier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabAccueil = new System.Windows.Forms.TabPage();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.btnDisconnect = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
@@ -85,12 +84,25 @@
             this.cbxSelectAt2 = new System.Windows.Forms.ComboBox();
             this.txbNomTh1 = new System.Windows.Forms.TextBox();
             this.dgvThemes = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabAtVisitor = new System.Windows.Forms.TabPage();
+            this.lblAteliersVisitor = new System.Windows.Forms.Label();
+            this.dgvAteliersVisitor = new System.Windows.Forms.DataGridView();
+            this.tabThVisitor = new System.Windows.Forms.TabPage();
+            this.lblThemesVisitor = new System.Windows.Forms.Label();
+            this.dgvThemesVisitor = new System.Windows.Forms.DataGridView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.idTheme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomTheme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnDisconnect = new System.Windows.Forms.Button();
-            this.lblStatus = new System.Windows.Forms.Label();
+            this.idAtelier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomAtelier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capaciteAtelier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fkAtelier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabAteliers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAteliers)).BeginInit();
             this.tabAccueil.SuspendLayout();
@@ -98,6 +110,10 @@
             this.tabControl.SuspendLayout();
             this.tabThemes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThemes)).BeginInit();
+            this.tabAtVisitor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAteliersVisitor)).BeginInit();
+            this.tabThVisitor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThemesVisitor)).BeginInit();
             this.SuspendLayout();
             // 
             // tabAteliers
@@ -136,7 +152,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(285, 99);
+            this.label1.Location = new System.Drawing.Point(261, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 56;
@@ -144,7 +160,7 @@
             // 
             // txbIdAt
             // 
-            this.txbIdAt.Location = new System.Drawing.Point(385, 96);
+            this.txbIdAt.Location = new System.Drawing.Point(361, 99);
             this.txbIdAt.Name = "txbIdAt";
             this.txbIdAt.Size = new System.Drawing.Size(46, 20);
             this.txbIdAt.TabIndex = 55;
@@ -152,7 +168,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(227, 161);
+            this.label15.Location = new System.Drawing.Point(203, 164);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(55, 13);
             this.label15.TabIndex = 39;
@@ -160,7 +176,7 @@
             // 
             // txbCapaciteAt1
             // 
-            this.txbCapaciteAt1.Location = new System.Drawing.Point(288, 158);
+            this.txbCapaciteAt1.Location = new System.Drawing.Point(264, 161);
             this.txbCapaciteAt1.Name = "txbCapaciteAt1";
             this.txbCapaciteAt1.Size = new System.Drawing.Size(143, 20);
             this.txbCapaciteAt1.TabIndex = 38;
@@ -168,7 +184,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(146, 339);
+            this.label14.Location = new System.Drawing.Point(122, 342);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 13);
             this.label14.TabIndex = 37;
@@ -176,7 +192,7 @@
             // 
             // txbCapaciteAt2
             // 
-            this.txbCapaciteAt2.Location = new System.Drawing.Point(207, 336);
+            this.txbCapaciteAt2.Location = new System.Drawing.Point(183, 339);
             this.txbCapaciteAt2.Name = "txbCapaciteAt2";
             this.txbCapaciteAt2.Size = new System.Drawing.Size(224, 20);
             this.txbCapaciteAt2.TabIndex = 36;
@@ -185,7 +201,7 @@
             // 
             this.lblDeleted1.AutoSize = true;
             this.lblDeleted1.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblDeleted1.Location = new System.Drawing.Point(104, 380);
+            this.lblDeleted1.Location = new System.Drawing.Point(80, 383);
             this.lblDeleted1.Name = "lblDeleted1";
             this.lblDeleted1.Size = new System.Drawing.Size(0, 13);
             this.lblDeleted1.TabIndex = 35;
@@ -194,7 +210,7 @@
             // 
             this.lblModified1.AutoSize = true;
             this.lblModified1.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblModified1.Location = new System.Drawing.Point(104, 380);
+            this.lblModified1.Location = new System.Drawing.Point(80, 383);
             this.lblModified1.Name = "lblModified1";
             this.lblModified1.Size = new System.Drawing.Size(0, 13);
             this.lblModified1.TabIndex = 34;
@@ -203,14 +219,14 @@
             // 
             this.lblCreated1.AutoSize = true;
             this.lblCreated1.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblCreated1.Location = new System.Drawing.Point(104, 197);
+            this.lblCreated1.Location = new System.Drawing.Point(80, 200);
             this.lblCreated1.Name = "lblCreated1";
             this.lblCreated1.Size = new System.Drawing.Size(0, 13);
             this.lblCreated1.TabIndex = 31;
             // 
             // btnModifierAt
             // 
-            this.btnModifierAt.Location = new System.Drawing.Point(349, 372);
+            this.btnModifierAt.Location = new System.Drawing.Point(325, 375);
             this.btnModifierAt.Name = "btnModifierAt";
             this.btnModifierAt.Size = new System.Drawing.Size(82, 29);
             this.btnModifierAt.TabIndex = 30;
@@ -220,7 +236,7 @@
             // 
             // btnSupprAt
             // 
-            this.btnSupprAt.Location = new System.Drawing.Point(261, 372);
+            this.btnSupprAt.Location = new System.Drawing.Point(237, 375);
             this.btnSupprAt.Name = "btnSupprAt";
             this.btnSupprAt.Size = new System.Drawing.Size(82, 29);
             this.btnSupprAt.TabIndex = 29;
@@ -231,7 +247,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(71, 303);
+            this.label13.Location = new System.Drawing.Point(47, 306);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(130, 13);
             this.label13.TabIndex = 28;
@@ -240,7 +256,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(94, 267);
+            this.label12.Location = new System.Drawing.Point(70, 270);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(107, 13);
             this.label12.TabIndex = 27;
@@ -249,7 +265,7 @@
             // cbxSelectAt1
             // 
             this.cbxSelectAt1.FormattingEnabled = true;
-            this.cbxSelectAt1.Location = new System.Drawing.Point(207, 264);
+            this.cbxSelectAt1.Location = new System.Drawing.Point(183, 267);
             this.cbxSelectAt1.Name = "cbxSelectAt1";
             this.cbxSelectAt1.Size = new System.Drawing.Size(224, 21);
             this.cbxSelectAt1.TabIndex = 26;
@@ -257,14 +273,14 @@
             // 
             // txbNomAt2
             // 
-            this.txbNomAt2.Location = new System.Drawing.Point(207, 300);
+            this.txbNomAt2.Location = new System.Drawing.Point(183, 303);
             this.txbNomAt2.Name = "txbNomAt2";
             this.txbNomAt2.Size = new System.Drawing.Size(224, 20);
             this.txbNomAt2.TabIndex = 25;
             // 
             // btnCreerAt
             // 
-            this.btnCreerAt.Location = new System.Drawing.Point(349, 193);
+            this.btnCreerAt.Location = new System.Drawing.Point(325, 196);
             this.btnCreerAt.Name = "btnCreerAt";
             this.btnCreerAt.Size = new System.Drawing.Size(82, 29);
             this.btnCreerAt.TabIndex = 24;
@@ -274,7 +290,7 @@
             // 
             // txbNomAt1
             // 
-            this.txbNomAt1.Location = new System.Drawing.Point(207, 126);
+            this.txbNomAt1.Location = new System.Drawing.Point(183, 129);
             this.txbNomAt1.Name = "txbNomAt1";
             this.txbNomAt1.Size = new System.Drawing.Size(224, 20);
             this.txbNomAt1.TabIndex = 23;
@@ -282,7 +298,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(123, 126);
+            this.label10.Location = new System.Drawing.Point(99, 129);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 13);
             this.label10.TabIndex = 22;
@@ -292,7 +308,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(39, 227);
+            this.label11.Location = new System.Drawing.Point(15, 230);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(311, 24);
             this.label11.TabIndex = 21;
@@ -303,7 +319,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(39, 66);
+            this.label5.Location = new System.Drawing.Point(15, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(224, 24);
             this.label5.TabIndex = 19;
@@ -326,27 +342,10 @@
             this.idAtelier,
             this.nomAtelier,
             this.capaciteAtelier});
-            this.dgvAteliers.Location = new System.Drawing.Point(488, 79);
+            this.dgvAteliers.Location = new System.Drawing.Point(422, 99);
             this.dgvAteliers.Name = "dgvAteliers";
-            this.dgvAteliers.Size = new System.Drawing.Size(262, 322);
+            this.dgvAteliers.Size = new System.Drawing.Size(353, 297);
             this.dgvAteliers.TabIndex = 0;
-            // 
-            // idAtelier
-            // 
-            this.idAtelier.HeaderText = "Atelier n°";
-            this.idAtelier.Name = "idAtelier";
-            this.idAtelier.Width = 50;
-            // 
-            // nomAtelier
-            // 
-            this.nomAtelier.HeaderText = "Atelier";
-            this.nomAtelier.Name = "nomAtelier";
-            // 
-            // capaciteAtelier
-            // 
-            this.capaciteAtelier.HeaderText = "Capacité (places)";
-            this.capaciteAtelier.Name = "capaciteAtelier";
-            this.capaciteAtelier.Width = 70;
             // 
             // tabAccueil
             // 
@@ -365,6 +364,26 @@
             this.tabAccueil.TabIndex = 0;
             this.tabAccueil.Text = "Accueil";
             this.tabAccueil.UseVisualStyleBackColor = true;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblStatus.Location = new System.Drawing.Point(296, 239);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(168, 13);
+            this.lblStatus.TabIndex = 16;
+            this.lblStatus.Text = "Vous êtes actuellement connecté!";
+            // 
+            // btnDisconnect
+            // 
+            this.btnDisconnect.Location = new System.Drawing.Point(297, 274);
+            this.btnDisconnect.Name = "btnDisconnect";
+            this.btnDisconnect.Size = new System.Drawing.Size(167, 37);
+            this.btnDisconnect.TabIndex = 15;
+            this.btnDisconnect.Text = "Se déconnecter";
+            this.btnDisconnect.UseVisualStyleBackColor = true;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // btnConnect
             // 
@@ -423,6 +442,8 @@
             this.tabControl.Controls.Add(this.tabAccueil);
             this.tabControl.Controls.Add(this.tabAteliers);
             this.tabControl.Controls.Add(this.tabThemes);
+            this.tabControl.Controls.Add(this.tabAtVisitor);
+            this.tabControl.Controls.Add(this.tabThVisitor);
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -465,7 +486,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(94, 349);
+            this.label2.Location = new System.Drawing.Point(61, 350);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 13);
             this.label2.TabIndex = 56;
@@ -474,7 +495,7 @@
             // cbxSelectAt3
             // 
             this.cbxSelectAt3.FormattingEnabled = true;
-            this.cbxSelectAt3.Location = new System.Drawing.Point(218, 341);
+            this.cbxSelectAt3.Location = new System.Drawing.Point(185, 342);
             this.cbxSelectAt3.Name = "cbxSelectAt3";
             this.cbxSelectAt3.Size = new System.Drawing.Size(224, 21);
             this.cbxSelectAt3.TabIndex = 55;
@@ -482,7 +503,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(296, 100);
+            this.label16.Location = new System.Drawing.Point(263, 101);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(97, 13);
             this.label16.TabIndex = 54;
@@ -490,7 +511,7 @@
             // 
             // txbIdTh
             // 
-            this.txbIdTh.Location = new System.Drawing.Point(396, 97);
+            this.txbIdTh.Location = new System.Drawing.Point(363, 98);
             this.txbIdTh.Name = "txbIdTh";
             this.txbIdTh.Size = new System.Drawing.Size(46, 20);
             this.txbIdTh.TabIndex = 53;
@@ -499,7 +520,7 @@
             // 
             this.lblDeleted2.AutoSize = true;
             this.lblDeleted2.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblDeleted2.Location = new System.Drawing.Point(113, 385);
+            this.lblDeleted2.Location = new System.Drawing.Point(80, 386);
             this.lblDeleted2.Name = "lblDeleted2";
             this.lblDeleted2.Size = new System.Drawing.Size(0, 13);
             this.lblDeleted2.TabIndex = 52;
@@ -508,7 +529,7 @@
             // 
             this.lblModified2.AutoSize = true;
             this.lblModified2.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblModified2.Location = new System.Drawing.Point(113, 385);
+            this.lblModified2.Location = new System.Drawing.Point(80, 386);
             this.lblModified2.Name = "lblModified2";
             this.lblModified2.Size = new System.Drawing.Size(0, 13);
             this.lblModified2.TabIndex = 51;
@@ -517,14 +538,14 @@
             // 
             this.lblCreated2.AutoSize = true;
             this.lblCreated2.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblCreated2.Location = new System.Drawing.Point(113, 209);
+            this.lblCreated2.Location = new System.Drawing.Point(80, 210);
             this.lblCreated2.Name = "lblCreated2";
             this.lblCreated2.Size = new System.Drawing.Size(0, 13);
             this.lblCreated2.TabIndex = 50;
             // 
             // btnSupprTh
             // 
-            this.btnSupprTh.Location = new System.Drawing.Point(272, 377);
+            this.btnSupprTh.Location = new System.Drawing.Point(239, 378);
             this.btnSupprTh.Name = "btnSupprTh";
             this.btnSupprTh.Size = new System.Drawing.Size(82, 29);
             this.btnSupprTh.TabIndex = 49;
@@ -536,7 +557,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(50, 233);
+            this.label6.Location = new System.Drawing.Point(17, 234);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(312, 24);
             this.label6.TabIndex = 48;
@@ -546,7 +567,7 @@
             // 
             this.lblCreer.AutoSize = true;
             this.lblCreer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreer.Location = new System.Drawing.Point(50, 66);
+            this.lblCreer.Location = new System.Drawing.Point(17, 67);
             this.lblCreer.Name = "lblCreer";
             this.lblCreer.Size = new System.Drawing.Size(243, 24);
             this.lblCreer.TabIndex = 47;
@@ -555,7 +576,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(88, 309);
+            this.label9.Location = new System.Drawing.Point(55, 310);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(127, 13);
             this.label9.TabIndex = 46;
@@ -564,7 +585,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(100, 273);
+            this.label8.Location = new System.Drawing.Point(67, 274);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(115, 13);
             this.label8.TabIndex = 45;
@@ -573,7 +594,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(97, 167);
+            this.label7.Location = new System.Drawing.Point(64, 168);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(118, 13);
             this.label7.TabIndex = 44;
@@ -582,7 +603,7 @@
             // lblNewNomTheme
             // 
             this.lblNewNomTheme.AutoSize = true;
-            this.lblNewNomTheme.Location = new System.Drawing.Point(126, 133);
+            this.lblNewNomTheme.Location = new System.Drawing.Point(93, 134);
             this.lblNewNomTheme.Name = "lblNewNomTheme";
             this.lblNewNomTheme.Size = new System.Drawing.Size(89, 13);
             this.lblNewNomTheme.TabIndex = 43;
@@ -590,7 +611,7 @@
             // 
             // btnModifierTh
             // 
-            this.btnModifierTh.Location = new System.Drawing.Point(360, 377);
+            this.btnModifierTh.Location = new System.Drawing.Point(327, 378);
             this.btnModifierTh.Name = "btnModifierTh";
             this.btnModifierTh.Size = new System.Drawing.Size(82, 29);
             this.btnModifierTh.TabIndex = 42;
@@ -600,7 +621,7 @@
             // 
             // btnCreerTh
             // 
-            this.btnCreerTh.Location = new System.Drawing.Point(360, 201);
+            this.btnCreerTh.Location = new System.Drawing.Point(327, 202);
             this.btnCreerTh.Name = "btnCreerTh";
             this.btnCreerTh.Size = new System.Drawing.Size(82, 29);
             this.btnCreerTh.TabIndex = 41;
@@ -611,7 +632,7 @@
             // cbxSelectTh
             // 
             this.cbxSelectTh.FormattingEnabled = true;
-            this.cbxSelectTh.Location = new System.Drawing.Point(218, 270);
+            this.cbxSelectTh.Location = new System.Drawing.Point(185, 271);
             this.cbxSelectTh.Name = "cbxSelectTh";
             this.cbxSelectTh.Size = new System.Drawing.Size(224, 21);
             this.cbxSelectTh.TabIndex = 40;
@@ -619,7 +640,7 @@
             // 
             // txbNomTh2
             // 
-            this.txbNomTh2.Location = new System.Drawing.Point(218, 306);
+            this.txbNomTh2.Location = new System.Drawing.Point(185, 307);
             this.txbNomTh2.Name = "txbNomTh2";
             this.txbNomTh2.Size = new System.Drawing.Size(224, 20);
             this.txbNomTh2.TabIndex = 39;
@@ -627,14 +648,14 @@
             // cbxSelectAt2
             // 
             this.cbxSelectAt2.FormattingEnabled = true;
-            this.cbxSelectAt2.Location = new System.Drawing.Point(218, 164);
+            this.cbxSelectAt2.Location = new System.Drawing.Point(185, 165);
             this.cbxSelectAt2.Name = "cbxSelectAt2";
             this.cbxSelectAt2.Size = new System.Drawing.Size(224, 21);
             this.cbxSelectAt2.TabIndex = 38;
             // 
             // txbNomTh1
             // 
-            this.txbNomTh1.Location = new System.Drawing.Point(218, 130);
+            this.txbNomTh1.Location = new System.Drawing.Point(185, 131);
             this.txbNomTh1.Name = "txbNomTh1";
             this.txbNomTh1.Size = new System.Drawing.Size(224, 20);
             this.txbNomTh1.TabIndex = 37;
@@ -645,20 +666,10 @@
             this.dgvThemes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idTheme,
             this.nomTheme});
-            this.dgvThemes.Location = new System.Drawing.Point(505, 104);
+            this.dgvThemes.Location = new System.Drawing.Point(425, 98);
             this.dgvThemes.Name = "dgvThemes";
-            this.dgvThemes.Size = new System.Drawing.Size(244, 282);
+            this.dgvThemes.Size = new System.Drawing.Size(348, 282);
             this.dgvThemes.TabIndex = 36;
-            // 
-            // idTheme
-            // 
-            this.idTheme.HeaderText = "Numéro du thème";
-            this.idTheme.Name = "idTheme";
-            // 
-            // nomTheme
-            // 
-            this.nomTheme.HeaderText = "Thème";
-            this.nomTheme.Name = "nomTheme";
             // 
             // label4
             // 
@@ -670,31 +681,156 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "Thèmes";
             // 
+            // tabAtVisitor
+            // 
+            this.tabAtVisitor.Controls.Add(this.lblAteliersVisitor);
+            this.tabAtVisitor.Controls.Add(this.dgvAteliersVisitor);
+            this.tabAtVisitor.Location = new System.Drawing.Point(4, 22);
+            this.tabAtVisitor.Name = "tabAtVisitor";
+            this.tabAtVisitor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAtVisitor.Size = new System.Drawing.Size(790, 424);
+            this.tabAtVisitor.TabIndex = 7;
+            this.tabAtVisitor.Text = "Ateliers";
+            this.tabAtVisitor.UseVisualStyleBackColor = true;
+            this.tabAtVisitor.Enter += new System.EventHandler(this.tabAtVisitor_Enter);
+            // 
+            // lblAteliersVisitor
+            // 
+            this.lblAteliersVisitor.AutoSize = true;
+            this.lblAteliersVisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAteliersVisitor.Location = new System.Drawing.Point(331, 38);
+            this.lblAteliersVisitor.Name = "lblAteliersVisitor";
+            this.lblAteliersVisitor.Size = new System.Drawing.Size(131, 37);
+            this.lblAteliersVisitor.TabIndex = 40;
+            this.lblAteliersVisitor.Text = "Ateliers";
+            // 
+            // dgvAteliersVisitor
+            // 
+            this.dgvAteliersVisitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAteliersVisitor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn4});
+            this.dgvAteliersVisitor.Location = new System.Drawing.Point(165, 94);
+            this.dgvAteliersVisitor.Name = "dgvAteliersVisitor";
+            this.dgvAteliersVisitor.Size = new System.Drawing.Size(455, 282);
+            this.dgvAteliersVisitor.TabIndex = 39;
+            // 
+            // tabThVisitor
+            // 
+            this.tabThVisitor.Controls.Add(this.lblThemesVisitor);
+            this.tabThVisitor.Controls.Add(this.dgvThemesVisitor);
+            this.tabThVisitor.Location = new System.Drawing.Point(4, 22);
+            this.tabThVisitor.Name = "tabThVisitor";
+            this.tabThVisitor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabThVisitor.Size = new System.Drawing.Size(790, 424);
+            this.tabThVisitor.TabIndex = 8;
+            this.tabThVisitor.Text = "Thèmes";
+            this.tabThVisitor.UseVisualStyleBackColor = true;
+            this.tabThVisitor.Enter += new System.EventHandler(this.tabThVisitor_Enter);
+            // 
+            // lblThemesVisitor
+            // 
+            this.lblThemesVisitor.AutoSize = true;
+            this.lblThemesVisitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThemesVisitor.Location = new System.Drawing.Point(321, 38);
+            this.lblThemesVisitor.Name = "lblThemesVisitor";
+            this.lblThemesVisitor.Size = new System.Drawing.Size(138, 37);
+            this.lblThemesVisitor.TabIndex = 40;
+            this.lblThemesVisitor.Text = "Thèmes";
+            // 
+            // dgvThemesVisitor
+            // 
+            this.dgvThemesVisitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThemesVisitor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.fkAtelier});
+            this.dgvThemesVisitor.Location = new System.Drawing.Point(47, 97);
+            this.dgvThemesVisitor.Name = "dgvThemesVisitor";
+            this.dgvThemesVisitor.Size = new System.Drawing.Size(693, 282);
+            this.dgvThemesVisitor.TabIndex = 39;
+            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // btnDisconnect
+            // idTheme
             // 
-            this.btnDisconnect.Location = new System.Drawing.Point(297, 274);
-            this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(167, 37);
-            this.btnDisconnect.TabIndex = 15;
-            this.btnDisconnect.Text = "Se déconnecter";
-            this.btnDisconnect.UseVisualStyleBackColor = true;
-            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
+            this.idTheme.HeaderText = "Thème n°";
+            this.idTheme.MinimumWidth = 50;
+            this.idTheme.Name = "idTheme";
+            this.idTheme.Width = 50;
             // 
-            // lblStatus
+            // nomTheme
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblStatus.Location = new System.Drawing.Point(296, 239);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(168, 13);
-            this.lblStatus.TabIndex = 16;
-            this.lblStatus.Text = "Vous êtes actuellement connecté!";
+            this.nomTheme.HeaderText = "Thème";
+            this.nomTheme.MinimumWidth = 255;
+            this.nomTheme.Name = "nomTheme";
+            this.nomTheme.Width = 255;
+            // 
+            // idAtelier
+            // 
+            this.idAtelier.HeaderText = "Atelier n°";
+            this.idAtelier.Name = "idAtelier";
+            this.idAtelier.Width = 50;
+            // 
+            // nomAtelier
+            // 
+            this.nomAtelier.HeaderText = "Atelier";
+            this.nomAtelier.MinimumWidth = 200;
+            this.nomAtelier.Name = "nomAtelier";
+            this.nomAtelier.Width = 200;
+            // 
+            // capaciteAtelier
+            // 
+            this.capaciteAtelier.HeaderText = "Capacité (places)";
+            this.capaciteAtelier.Name = "capaciteAtelier";
+            this.capaciteAtelier.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Atelier n°";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 50;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Atelier";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 300;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Capacité (places)";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 60;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Thème n°";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Thème";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 320;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 320;
+            // 
+            // fkAtelier
+            // 
+            this.fkAtelier.HeaderText = "Atelier";
+            this.fkAtelier.MinimumWidth = 280;
+            this.fkAtelier.Name = "fkAtelier";
+            this.fkAtelier.Width = 280;
             // 
             // ASL
             // 
@@ -715,6 +851,12 @@
             this.tabThemes.ResumeLayout(false);
             this.tabThemes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThemes)).EndInit();
+            this.tabAtVisitor.ResumeLayout(false);
+            this.tabAtVisitor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAteliersVisitor)).EndInit();
+            this.tabThVisitor.ResumeLayout(false);
+            this.tabThVisitor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThemesVisitor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -762,8 +904,6 @@
         private System.Windows.Forms.ComboBox cbxSelectAt2;
         private System.Windows.Forms.TextBox txbNomTh1;
         private System.Windows.Forms.DataGridView dgvThemes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idTheme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomTheme;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txbIdTh;
         private System.Windows.Forms.Label label16;
@@ -771,9 +911,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbIdAt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idAtelier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomAtelier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn capaciteAtelier;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxSelectAt3;
         private System.Windows.Forms.Button btnConnect;
@@ -783,6 +920,23 @@
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.TabPage tabAtVisitor;
+        private System.Windows.Forms.Label lblAteliersVisitor;
+        private System.Windows.Forms.DataGridView dgvAteliersVisitor;
+        private System.Windows.Forms.TabPage tabThVisitor;
+        private System.Windows.Forms.Label lblThemesVisitor;
+        private System.Windows.Forms.DataGridView dgvThemesVisitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTheme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomTheme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idAtelier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomAtelier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn capaciteAtelier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fkAtelier;
     }
 }
 

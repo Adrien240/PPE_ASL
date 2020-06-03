@@ -17,7 +17,7 @@ namespace AssisesSportLorrain
 
             SqlDataReader reader = db.excecSQLRead(req);
             reader.Read();
-            Utilisateur US = new Utilisateur(reader[0].ToString(), reader[1].ToString());
+            Utilisateur US = new Utilisateur(reader[0].ToString(), reader[1].ToString(), int.Parse(reader[2].ToString()));
 
             return US;
         }

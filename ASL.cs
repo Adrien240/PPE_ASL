@@ -15,6 +15,8 @@ namespace AssisesSportLorrain
         private void ASL_Load(object sender, EventArgs e){
             tabControl.TabPages.Remove(tabAteliers);
             tabControl.TabPages.Remove(tabThemes);
+            tabControl.TabPages.Remove(tabAtVisitor);
+            tabControl.TabPages.Remove(tabThVisitor);
             lblStatus.Hide();
             btnDisconnect.Hide();
         }
@@ -23,8 +25,8 @@ namespace AssisesSportLorrain
             InitializeComponent();
         }
 
-        #region Onglet Atelier
-        // Onglet ATELIER
+        #region Onglet Ateliers
+        // Onglet ATELIERS
         //====================================================================
         private void tabAteliers_Enter(object sender, EventArgs e){
             cbxSelectAt1.Items.Clear();
@@ -57,6 +59,17 @@ namespace AssisesSportLorrain
                     txbCapaciteAt1.Clear();
 
                     lblCreated1.Text = "Atelier créé !";
+
+                    //On réactualise la combobox pour ajouter l'élément créé
+                    cbxSelectAt1.Items.Clear();
+                    cbxSelectAt1.ResetText();
+                    foreach (Atelier unAtelier in Atelier.listeAteliers())
+                    {
+                        cbxSelectAt1.Items.Add(unAtelier.IdAtelier + " (" + unAtelier.NomAtelier + ")");
+                    }
+
+                    //On réactualise le DataGridView pour le remplir automatiquement
+                    remplirListeAteliers();
                 }
             }
             catch (Exception ex)
@@ -87,6 +100,9 @@ namespace AssisesSportLorrain
                 txbCapaciteAt2.Clear();
 
                 lblModified1.Text = "Atelier modifié !";
+
+                //On réactualise le DataGridView pour le remplir automatiquement
+                remplirListeAteliers();
             }
             catch (Exception ex){
                 MessageBox.Show("ERREUR! Plus d'informations ci-dessous :");
@@ -106,6 +122,17 @@ namespace AssisesSportLorrain
                 txbCapaciteAt2.Clear();
 
                 lblDeleted1.Text = "Atelier supprimé !";
+
+                //On réactualise la combobox pour enlever l'élément supprimé de la liste
+                cbxSelectAt1.Items.Clear();
+                cbxSelectAt1.ResetText();
+                foreach (Atelier unAtelier in Atelier.listeAteliers())
+                {
+                    cbxSelectAt1.Items.Add(unAtelier.IdAtelier + " (" + unAtelier.NomAtelier + ")");
+                }
+
+                //On réactualise le DataGridView pour le remplir automatiquement
+                remplirListeAteliers();
             }
             catch (Exception ex){
                 MessageBox.Show("ERREUR! Plus d'informations ci-dessous :");
@@ -115,8 +142,8 @@ namespace AssisesSportLorrain
 
         #endregion
 
-        #region Onglet Thème
-        // Onglet THEME
+        #region Onglet Thèmes
+        // Onglet THEMES
         //====================================================================
         private void tabThemes_Enter(object sender, EventArgs e){
             cbxSelectAt2.Items.Clear();
@@ -159,6 +186,18 @@ namespace AssisesSportLorrain
                     cbxSelectAt2.ResetText();
 
                     lblCreated2.Text = "Thème créé !";
+
+                    //On réactualise la combobox pour ajouter l'élément créé
+                    cbxSelectTh.Items.Clear();
+                    cbxSelectTh.ResetText();
+
+                    foreach (Theme unTheme in Theme.listeThemes())
+                    {
+                        cbxSelectTh.Items.Add(unTheme.IdTheme + " (" + unTheme.NomTheme + ")");
+                    }
+
+                    //On réactualise le DataGridView pour le remplir automatiquement
+                    remplirListeThemes();
                 }
             }
             catch (Exception ex){
@@ -188,6 +227,9 @@ namespace AssisesSportLorrain
                 cbxSelectAt3.ResetText();
 
                 lblModified2.Text = "Thème modifié !";
+
+                //On réactualise le DataGridView pour le remplir automatiquement
+                remplirListeThemes();
             }
             catch (Exception ex){
                 MessageBox.Show("ERREUR! Plus d'informations ci-dessous :");
@@ -207,6 +249,18 @@ namespace AssisesSportLorrain
                 cbxSelectAt3.ResetText();
 
                 lblDeleted2.Text = "Thème supprimé !";
+
+                //On réactualise la combobox pour enlever l'élément créé à la liste
+                cbxSelectTh.Items.Clear();
+                cbxSelectTh.ResetText();
+
+                foreach (Theme unTheme in Theme.listeThemes())
+                {
+                    cbxSelectTh.Items.Add(unTheme.IdTheme + " (" + unTheme.NomTheme + ")");
+                }
+
+                //On réactualise le DataGridView pour le remplir automatiquement
+                remplirListeThemes();
             }
             catch (Exception ex){
                 MessageBox.Show("ERREUR! Plus d'informations ci-dessous :");
@@ -215,6 +269,106 @@ namespace AssisesSportLorrain
         }
 
         #endregion
+
+        #region Onglets visiteurs
+
+        // Onglets ATELIERS
+        //====================================================================
+        private void tabAtVisitor_Enter(object sender, EventArgs e)
+        {
+            dgvAteliersVisitor.Rows.Clear();
+
+            foreach (Atelier unAtelier in Atelier.listeAteliers())
+            {
+                dgvAteliersVisitor.Rows.Add(unAtelier.IdAtelier, unAtelier.NomAtelier, unAtelier.CapaciteAtelier);
+            }
+        }
+
+        // Onglet THEME
+        //====================================================================
+        private void tabThVisitor_Enter(object sender, EventArgs e)
+        {
+            dgvThemesVisitor.Rows.Clear();
+
+            foreach (Theme unTheme in Theme.listeThemes2())
+            {
+                dgvThemesVisitor.Rows.Add(unTheme.IdTheme, unTheme.NomTheme, unTheme.NomAtelier);
+            }
+        }
+
+        #endregion
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Utilisateur U1;
+                U1 = new Utilisateur(txbEmail.Text.ToLower(), txbPass.Text);
+                Utilisateur U2;
+                U2 = U1.checkUser();
+
+                if (U1.EmailUtilisateur == U2.EmailUtilisateur && U1.PassUtilisateur == U2.PassUtilisateur)
+                {
+                    MessageBox.Show("Vous êtes à présent connecté!");
+
+                    txbEmail.Clear();
+                    txbPass.Clear();
+
+                    // On masque les champs inutiles //
+                    lblEmail.Hide();
+                    lblPass.Hide();
+                    txbEmail.Hide();
+                    txbPass.Hide();
+                    btnConnect.Hide();
+
+                    // On affiche les informations utiles pour la gestion et consultation des ateliers et des thèmes //
+                    btnDisconnect.Show();
+                    lblStatus.Show();
+
+                    if (U2.LevelUtilisateur == 2)
+                    {
+                        tabControl.TabPages.Add(tabAteliers);
+                        tabControl.TabPages.Add(tabThemes);
+                    }
+                    else
+                    {
+                        tabControl.TabPages.Add(tabAtVisitor);
+                        tabControl.TabPages.Add(tabThVisitor);
+                    }
+                }
+            }
+            catch
+            {
+                if (txbEmail.Text == "" && txbPass.Text == "")
+                {
+                    MessageBox.Show("Veuillez saisir quelque chose avant de cliquer sur ce bouton");
+                }
+                else
+                {
+                    MessageBox.Show("Erreur! E-mail ou Mot de passe incorrect");
+                }
+
+            }
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            // Fait l'inverse du bouton btnConnect //
+            MessageBox.Show("Vous êtes à présent déconnecté!");
+
+            lblEmail.Show();
+            lblPass.Show();
+            txbEmail.Show();
+            txbPass.Show();
+            btnConnect.Show();
+
+            tabControl.TabPages.Remove(tabAteliers);
+            tabControl.TabPages.Remove(tabThemes);
+            tabControl.TabPages.Remove(tabAtVisitor);
+            tabControl.TabPages.Remove(tabThVisitor);
+            btnDisconnect.Hide();
+            lblStatus.Hide();
+        }
 
         private void remplirListeAteliers(){
             dgvAteliers.Rows.Clear();
@@ -232,63 +386,6 @@ namespace AssisesSportLorrain
             {
                 dgvThemes.Rows.Add(unTheme.IdTheme, unTheme.NomTheme);
             }
-        }
-
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            try{
-                Utilisateur U1;
-                U1 = new Utilisateur(txbEmail.Text.ToLower(), txbPass.Text);
-                Utilisateur U2;
-                U2 = U1.checkUser();
-
-                if (U1.EmailUtilisateur == U2.EmailUtilisateur && U1.PassUtilisateur == U2.PassUtilisateur){
-                    MessageBox.Show("Vous êtes à présent connecté!");
-
-                    txbEmail.Clear();
-                    txbPass.Clear();
-
-                    // On masque les champs inutiles //
-                    lblEmail.Hide();
-                    lblPass.Hide();
-                    txbEmail.Hide();
-                    txbPass.Hide();
-                    btnConnect.Hide();
-
-                    // On affiche les tabPages pour la gestion et consultation des ateliers et des thèmes //
-                    tabControl.TabPages.Add(tabAteliers);
-                    tabControl.TabPages.Add(tabThemes);
-                    btnDisconnect.Show();
-                    lblStatus.Show();
-                }
-            }
-            catch
-            {
-                if (txbEmail.Text == "" && txbPass.Text == ""){
-                    MessageBox.Show("Veuillez saisir quelque chose avant de cliquer sur ce bouton");
-                }
-                else {
-                    MessageBox.Show("Erreur! E-mail ou Mot de passe incorrect");
-                }
-                
-            }
-        }
-
-        private void btnDisconnect_Click(object sender, EventArgs e)
-        {
-            // Fait l'inverse du bouton btnConnect //
-            MessageBox.Show("Vous êtes à présent déconnecté!");
-
-            lblEmail.Show();
-            lblPass.Show();
-            txbEmail.Show();
-            txbPass.Show();
-            btnConnect.Show();
-
-            tabControl.TabPages.Remove(tabAteliers);
-            tabControl.TabPages.Remove(tabThemes);
-            btnDisconnect.Hide();
-            lblStatus.Hide();
         }
     }
 }
